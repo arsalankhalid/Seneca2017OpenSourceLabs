@@ -7,8 +7,8 @@
  */
 
 exports.isValidEmail = function (email) {
-  const senecaEmailFormat = /^[a-z]{3,}[0-9]{0,3}@myseneca.ca$/;
-  if (senecaEmailFormat.test(email)) {
+  const validEmail = /^[^ ]*@myseneca.ca$|senecac.on.ca$|senecacollege.ca$/;
+  if (validEmail.test(email)) {
     return true;
   }
   return false;
@@ -19,6 +19,10 @@ exports.isValidEmail = function (email) {
  * this person. NOTE: the email doesn't need to be real/valid/active.
  */
 exports.formatSenecaEmail = function (name) {
-  const completeName = `${name}@myseneca.ca`;
-  return completeName;
+  if (name === null) {
+    return 'null';
+  } else if (!(/^\w+$/.test(name))) {
+    return name.replace(' ', '').concat('@myseneca.ca');
+  }
+  return name.concat('@myseneca.ca');
 };
