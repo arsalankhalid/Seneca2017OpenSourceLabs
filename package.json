@@ -5,7 +5,8 @@
   "main": "seneca.js",
   "scripts": {
     "lint": "node_modules/.bin/eslint *.js",
-    "test": "npm run -s lint"
+    "jest": "node_modules/.bin/jest",
+    "test": "npm run -s lint && npm run jest"
   },
   "repository": {
     "type": "git",
